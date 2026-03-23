@@ -64,4 +64,4 @@ int main() {
 
 
 // crie um ponteiro de inteiro
-// int *ptr;
+int *ptr;
