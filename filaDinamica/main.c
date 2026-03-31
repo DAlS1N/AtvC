@@ -66,7 +66,7 @@ int desenfileirar(Fila *f) {
 
 void imprimir(Fila *f) {
     Nodo *atual = f->inicio;
-    printf("Fila: ");
+    printf("Fila:");
     while (atual != NULL) {
         printf("%d ", atual->valor); 
         atual = atual->proximo;
@@ -75,11 +75,7 @@ void imprimir(Fila *f) {
 }
 
 void destruir(Fila *f){
-    while (desenfileirar(f))
-    {
-
-    }
-    
+    while (desenfileirar(f));
 }
 
 
