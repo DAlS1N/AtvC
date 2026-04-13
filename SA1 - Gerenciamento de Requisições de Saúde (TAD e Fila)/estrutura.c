@@ -147,9 +147,7 @@ void fila_exibir(const Fila *f)
         return;
     }
 
-    printf("========================================\n");
     printf("  FILA DE ATENDIMENTO — %d paciente(s)\n", f->tamanho);
-    printf("========================================\n");
 
     const No *atual = f->head;
     int posicao = 1;
