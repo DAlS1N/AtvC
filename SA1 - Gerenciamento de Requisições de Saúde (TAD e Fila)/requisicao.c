@@ -1,8 +1,3 @@
-/* ============================================================
- * requisicao.c
- * Implementacao da entidade Requisicao de Atendimento.
- * ============================================================ */
-
 #include <stdio.h>
 #include <string.h>
 #include "requisicao.h"

@@ -1,15 +1,3 @@
-/* ============================================================
- * main.c  (cliente / teste)
- * Valida o TAD Fila em um cenario realista de gerenciamento
- * de atendimento hospitalar.
- *
- * Fluxo simulado:
- *   1. Chegada de pacientes → fila_inserir
- *   2. Monitoramento administrativo → fila_tamanho / fila_exibir
- *   3. Atendimento (alocacao) → fila_remover
- *   4. Liberacao total de memoria → fila_destruir
- * ============================================================ */
-
 #include <stdio.h>
 #include "requisicao.h"
 #include "estrutura.h"

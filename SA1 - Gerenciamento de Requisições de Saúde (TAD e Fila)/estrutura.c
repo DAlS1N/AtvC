@@ -1,11 +1,3 @@
-/* ============================================================
- * estrutura.c
- * Implementacao do TAD Fila com lista encadeada.
- *
- * Todas as operacoes principais (inserir/remover) sao O(1)
- * gracas ao uso de dois ponteiros: head e tail.
- * ============================================================ */
-
 #include <stdio.h>
 #include <stdlib.h>
 #include "estrutura.h"

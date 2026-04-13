@@ -1,20 +1,5 @@
 #ifndef ESTRUTURA_H
 #define ESTRUTURA_H
-
-/* ============================================================
- * estrutura.h
- * Contrato do TAD Fila (Queue) para gerenciamento de
- * requisicoes de atendimento — logica FIFO.
- *
- * Estrategia de implementacao:
- *   Lista encadeada com ponteiros para o INICIO (head) e
- *   para o FIM (tail) da fila.
- *
- *   - Insercao no tail  → O(1)  sem percorrer a lista
- *   - Remocao no head   → O(1)  sem percorrer a lista
- *   - Consulta de tamanho → O(1) campo mantido atualizado
- * ============================================================ */
-
 #include "requisicao.h"
 
 /* ---- No interno da lista encadeada ---- */

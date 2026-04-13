@@ -1,13 +1,5 @@
 #ifndef REQUISICAO_H
 #define REQUISICAO_H
-
-/* ============================================================
- * requisicao.h
- * Contrato da entidade Requisicao de Atendimento.
- * Define a estrutura de dados que representa um paciente
- * aguardando na fila do sistema de saude.
- * ============================================================ */
-
 #define NOME_MAX       40
 #define PROCEDIMENTO_MAX 10
 
