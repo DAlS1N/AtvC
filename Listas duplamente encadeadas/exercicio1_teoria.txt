@@ -1,0 +1,7 @@
+Em uma Lista Simplesmente Encadeada, cada nó possui apenas um ponteiro apontando para o próximo elemento. Por isso, para remover o último elemento (Tail), é necessário percorrer toda a lista desde o início (Head) até encontrar o penúltimo nó, já que somente ele poderá ter seu ponteiro ajustado para NULL. Esse processo gera uma complexidade de tempo O(n), pois depende da quantidade de elementos existentes.
+
+Já na Lista Duplamente Encadeada, cada nó possui dois ponteiros: um para o próximo elemento (*next) e outro para o elemento anterior (*previous). Isso permite acessar diretamente o nó anterior ao Tail sem precisar percorrer toda a lista.
+
+Assim, ao remover o último elemento, basta usar o ponteiro *previous do Tail para encontrar imediatamente o penúltimo nó, ajustar seu ponteiro *next para NULL e atualizar o Tail para esse novo último elemento.
+
+Com isso, a complexidade da operação passa a ser O(1), ou seja, tempo constante, porque não é mais necessário percorrer a lista inteira, independentemente do seu tamanho.
