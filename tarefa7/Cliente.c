@@ -102,4 +102,14 @@ int main() {
         {60, "Fabio", "9999-0009"}, {35, "Guto", "9999-0010"}
     };
 
+    printf("--- Lista Original ---\n");
+    imprimir(lista, 10);
+
+    printf("--- Ordenado por Nome (Manual) ---\n");
+    ordenarPorNomeManual(lista, 10);
+    imprimir(lista, 10);
+
+    buscarPorTelefoneManual(lista, 10, "9904");
+
+    return 0;
 }
