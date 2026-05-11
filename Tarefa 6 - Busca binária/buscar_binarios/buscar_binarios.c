@@ -35,23 +35,23 @@ int busca_sequencial(int vetor[], int tamanho, int valor, int *comparacoes) {
     return -1;
 }
 
-void insertion_sort(int v[], int n, int *comparacoes, int *trocas) {
-    for (int i = 1; i < n; i++) {
-        int chave = v[i];
-        int j = i - 1;
-        while (j >= 0) {
-            (*comparacoes)++;
-            if (v[j] > chave) {
-                v[j + 1] = v[j];
-                (*trocas)++;
-                j--;
-            } else {
-                break;
-            }
-        }
-        v[j + 1] = chave;
+void classificar_insercao(int *vetor, int tamanho, int *comparacoes) {
+int i, j, atual;
+for (i = 1; i < tamanho; i++) {
+    atual = vetor[i];
+    j = i - 1;
+
+    while (j >= 0 && vetor[j] > atual) {
+        vetor[j + 1] = vetor[j];
+        j--;
+        (*comparacoes)++;
     }
+    vetor[j + 1] = atual;
 }
+}
+
+
+
 
 int main() {
     int tamanho = 100000;
@@ -100,16 +100,6 @@ int main() {
 
     printf("\nBusca Binaria:\n");
     printf("Posicao: %d | Comparacoes: %d | Tempo medio: %.2f microsegundos\n", pos_bin, comp_bin, tempo_bin);
-
-    // 🔹 Insertion Sort
-    int comp_ins = 0, trocas_ins = 0;
-    int v[] = {5, 3, 8, 1, 9, 2, 7, 4, 6, 0};
-    int n = 10;
-
-    insertion_sort(v, n, &comp_ins, &trocas_ins);
-
-    printf("\nInsertion Sort:\n");
-    printf("Comparacoes: %d | Trocas: %d\n", comp_ins, trocas_ins);
 
     return 0;
 }
