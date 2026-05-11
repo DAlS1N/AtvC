@@ -210,3 +210,36 @@ int main(void)
 
     return 0;
 }
+
+
+//com esse executar é possivel ver os imprimir pos ordenação
+/*void executar(const char *nome, Produto original[], int n)
+{
+    Produto copia[TAMANHO];
+    long comp, trocas;
+
+    printf("\n=== %s ===\n", nome);
+    printf("%-15s | %12s | %8s\n", "Algoritmo", "Comparacoes", "Trocas");
+    printf("------------------------------------------\n");
+
+    copiar(copia, original, n);
+    bubble_sort(copia, n, &comp, &trocas);
+    printf("%-15s | %12ld | %8ld\n", "Bubble Sort", comp, trocas);
+
+    printf("\nVetor apos Bubble Sort:\n");
+    imprimir(copia, n);
+
+    copiar(copia, original, n);
+    selection_sort(copia, n, &comp, &trocas);
+    printf("%-15s | %12ld | %8ld\n", "Selection Sort", comp, trocas);
+
+    printf("\nVetor apos Selection Sort:\n");
+    imprimir(copia, n);
+
+    copiar(copia, original, n);
+    insertion_sort(copia, n, &comp, &trocas);
+    printf("%-15s | %12ld | %8ld\n", "Insertion Sort", comp, trocas);
+
+    printf("\nVetor apos Insertion Sort:\n");
+    imprimir(copia, n);
+}*/
