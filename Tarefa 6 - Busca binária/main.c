@@ -109,4 +109,26 @@ void gerar_inverso(Produto v[], int n) {
         v[i].valor = (n - i) * 10.0f;
     }
 }
+
+/* ---------- execução de um cenário ---------- */
+ 
+/* Roda os três algoritmos sobre o mesmo vetor original e imprime a tabela.
+   Usa copiar() antes de cada um para não alterar os dados originais. */
+void executar(const char *nome, Produto original[], int n) {
+    Produto copia[TAMANHO];
+    long comp, trocas;
+ 
+    printf("\n=== %s ===\n", nome);
+    printf("%-15s | %12s | %8s\n", "Algoritmo", "Comparacoes", "Trocas");
+    printf("------------------------------------------\n");
+ 
+    copiar(copia, original, n); bubble_sort    (copia, n, &comp, &trocas);
+    printf("%-15s | %12ld | %8ld\n", "Bubble Sort",    comp, trocas);
+ 
+    copiar(copia, original, n); selection_sort (copia, n, &comp, &trocas);
+    printf("%-15s | %12ld | %8ld\n", "Selection Sort", comp, trocas);
+ 
+    copiar(copia, original, n); insertion_sort (copia, n, &comp, &trocas);
+    printf("%-15s | %12ld | %8ld\n", "Insertion Sort", comp, trocas);
+}
  
