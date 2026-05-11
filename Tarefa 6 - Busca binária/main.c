@@ -12,9 +12,22 @@ typedef struct
     float valor;
 } Produto;
 
+/* ---------- utilitários ---------- */
+ 
+/* Copia todos os produtos de um vetor para outro.
+   Usada antes de cada algoritmo para que todos comecem com os mesmos dados. */
+void copiar(Produto dest[], Produto orig[], int n) {
+    for (int i = 0; i < n; i++) dest[i] = orig[i];
+}
+ 
+/* Mostra todos os produtos na tela. */
+void imprimir(Produto v[], int n) {
+    for (int i = 0; i < n; i++)
+        printf("  Cod: %3d | %-12s | R$ %.2f\n", v[i].codigo, v[i].nome, v[i].valor);
+}
+
 /* ---------- algoritmos de ordenação ---------- */
  
-
 void bubble_sort(Produto v[], int n, long *comp, long *trocas) {
     *comp = *trocas = 0;
     for (int i = 0; i < n - 1; i++) {
