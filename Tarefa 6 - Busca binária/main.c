@@ -64,13 +64,16 @@ void insertion_sort(Produto v[], int n, long *comp, long *trocas) {
         Produto atual = v[i];   /* guarda o produto que será encaixado */
         int j = i - 1;
         while (j >= 0) {
-            (*comp)++;          /* conta a comparação (inclusive quando falha) */
-            if (v[j].codigo > atual.codigo) {
-                v[j+1] = v[j]; /* empurra o maior uma casa para a direita */
-                (*trocas)++;
-                j--;
-            } else break;
-        }
+    (*comp)++;
+
+    if (v[j].codigo > atual.codigo) {
+        v[j + 1] = v[j];
+        (*trocas)++;
+        j--;
+    } else {
+        break;
+    }
+}
         v[j+1] = atual;        /* encaixa o produto na posição correta */
     }
 }
@@ -131,4 +134,29 @@ void executar(const char *nome, Produto original[], int n) {
     copiar(copia, original, n); insertion_sort (copia, n, &comp, &trocas);
     printf("%-15s | %12ld | %8ld\n", "Insertion Sort", comp, trocas);
 }
+
+
+int main(void) {
+    srand((unsigned)time(NULL));   /* semente aleatória baseada no horário */
  
+    Produto aleatorio[TAMANHO], ordenado[TAMANHO], inverso[TAMANHO];
+    gerar_aleatorio(aleatorio, TAMANHO);
+    gerar_ordenado (ordenado,  TAMANHO);
+    gerar_inverso  (inverso,   TAMANHO);
+ 
+    printf("=== CORRIDA DOS ALGORITMOS | Entidade: Produto | N = %d ===\n", TAMANHO);
+    printf("\nDados aleatorios (antes de ordenar):\n");
+    imprimir(aleatorio, TAMANHO);
+ 
+    executar("Dados Aleatorios",       aleatorio, TAMANHO);
+    executar("Dados ja Ordenados",     ordenado,  TAMANHO);
+    executar("Dados em Ordem Inversa", inverso,   TAMANHO);
+ 
+    printf("\n=== CONCLUSAO ===\n");
+    printf("Ordenado  -> Insertion Sort e o melhor (minimo de comparacoes e trocas)\n");
+    printf("Aleatorio -> Insertion Sort tende a ter menos comparacoes\n");
+    printf("Inverso   -> Selection Sort minimiza trocas (no maximo N-1)\n");
+    printf("Bubble Sort e o pior ou igual nos tres cenarios\n");
+ 
+    return 0;
+}
