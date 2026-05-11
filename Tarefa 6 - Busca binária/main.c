@@ -43,3 +43,21 @@ void selection_sort(Produto v[], int n, long *comp, long *trocas) {
         }
     }
 }
+
+
+void insertion_sort(Produto v[], int n, long *comp, long *trocas) {
+    *comp = *trocas = 0;
+    for (int i = 1; i < n; i++) {
+        Produto atual = v[i];   /* guarda o produto que será encaixado */
+        int j = i - 1;
+        while (j >= 0) {
+            (*comp)++;          /* conta a comparação (inclusive quando falha) */
+            if (v[j].codigo > atual.codigo) {
+                v[j+1] = v[j]; /* empurra o maior uma casa para a direita */
+                (*trocas)++;
+                j--;
+            } else break;
+        }
+        v[j+1] = atual;        /* encaixa o produto na posição correta */
+    }
+}
