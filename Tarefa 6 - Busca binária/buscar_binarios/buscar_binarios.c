@@ -1,21 +1,27 @@
 #include <stdio.h>
 #include <time.h>
 
-int buscar_binaria(int vetor[], int tamanho, int valor, int *comparacoes) {
+int buscar_binaria(int vetor[], int tamanho, int valor, int *comparacoes)
+{
     int inicio = 0;
     int fim = tamanho - 1;
 
-    while (inicio <= fim) {
+    while (inicio <= fim)
+    {
         int meio = (inicio + fim) / 2;
         (*comparacoes)++;
 
-        if (vetor[meio] == valor) {
+        if (vetor[meio] == valor)
+        {
             return meio;
         }
 
-        if (valor < vetor[meio]) {
+        if (valor < vetor[meio])
+        {
             fim = meio - 1;
-        } else {
+        }
+        else
+        {
             inicio = meio + 1;
         }
     }
@@ -23,11 +29,14 @@ int buscar_binaria(int vetor[], int tamanho, int valor, int *comparacoes) {
     return -1;
 }
 
-int busca_sequencial(int vetor[], int tamanho, int valor, int *comparacoes) {
-    for (int i = 0; i < tamanho; i++) {
+int busca_sequencial(int vetor[], int tamanho, int valor, int *comparacoes)
+{
+    for (int i = 0; i < tamanho; i++)
+    {
         (*comparacoes)++;
 
-        if (vetor[i] == valor) {
+        if (vetor[i] == valor)
+        {
             return i;
         }
     }
@@ -35,14 +44,17 @@ int busca_sequencial(int vetor[], int tamanho, int valor, int *comparacoes) {
     return -1;
 }
 
-void classificar_insercao(int *vetor, int tamanho, int *comparacoes) {
+void classificar_insercao(int *vetor, int tamanho, int *comparacoes)
+{
     int i, j, atual;
 
-    for (i = 1; i < tamanho; i++) {
+    for (i = 1; i < tamanho; i++)
+    {
         atual = vetor[i];
         j = i - 1;
 
-        while (j >= 0 && vetor[j] > atual) {
+        while (j >= 0 && vetor[j] > atual)
+        {
             vetor[j + 1] = vetor[j];
             j--;
             (*comparacoes)++;
@@ -52,19 +64,22 @@ void classificar_insercao(int *vetor, int tamanho, int *comparacoes) {
     }
 }
 
-int main() {
+int main()
+{
     int tamanho = 100000;
 
     int vetor[100000];
     int vetor_insercao[100000];
 
     // Vetor ordenado para buscas
-    for (int i = 0; i < tamanho; i++) {
+    for (int i = 0; i < tamanho; i++)
+    {
         vetor[i] = i;
     }
 
     // Vetor invertido para pior caso do insertion sort
-    for (int i = 0; i < tamanho; i++) {
+    for (int i = 0; i < tamanho; i++)
+    {
         vetor_insercao[i] = tamanho - i;
     }
 
@@ -81,7 +96,8 @@ int main() {
     // 🔹 Busca Sequencial
     inicio = clock();
 
-    for (int i = 0; i < repeticoes; i++) {
+    for (int i = 0; i < repeticoes; i++)
+    {
         busca_sequencial(vetor, tamanho, valor, &comp_seq);
     }
 
@@ -93,7 +109,8 @@ int main() {
     // 🔹 Busca Binária
     inicio = clock();
 
-    for (int i = 0; i < repeticoes; i++) {
+    for (int i = 0; i < repeticoes; i++)
+    {
         buscar_binaria(vetor, tamanho, valor, &comp_bin);
     }
 
