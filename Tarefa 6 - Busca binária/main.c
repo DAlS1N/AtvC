@@ -27,3 +27,19 @@ void bubble_sort(Produto v[], int n, long *comp, long *trocas) {
         }
     }
 }
+
+
+void selection_sort(Produto v[], int n, long *comp, long *trocas) {
+    *comp = *trocas = 0;
+    for (int i = 0; i < n - 1; i++) {
+        int min = i;
+        for (int j = i + 1; j < n; j++) {
+            (*comp)++;                              /* conta a comparação */
+            if (v[j].codigo < v[min].codigo) min = j;
+        }
+        if (min != i) {
+            Produto tmp = v[i]; v[i] = v[min]; v[min] = tmp;
+            (*trocas)++;                            /* conta a troca */
+        }
+    }
+}
