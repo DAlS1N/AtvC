@@ -74,4 +74,26 @@ void gerar_aleatorio(Produto v[], int n) {
         v[i].valor = (rand() % 50000) / 100.0f;
     }
 }
+
+/* Cenário 2: dados já em ordem crescente de codigo (melhor caso). */
+void gerar_ordenado(Produto v[], int n) {
+    const char *nomes[] = {"Teclado","Mouse","Monitor","Notebook","Headset",
+                           "Webcam","Impressora","Roteador","SSD","Pendrive"};
+    for (int i = 0; i < n; i++) {
+        v[i].codigo = i + 1;
+        snprintf(v[i].nome, sizeof(v[i].nome), "%s", nomes[i % 10]);
+        v[i].valor = (i + 1) * 10.0f;
+    }
+}
+
+/* Cenário 3: dados em ordem decrescente de codigo (pior caso). */
+void gerar_inverso(Produto v[], int n) {
+    const char *nomes[] = {"Teclado","Mouse","Monitor","Notebook","Headset",
+                           "Webcam","Impressora","Roteador","SSD","Pendrive"};
+    for (int i = 0; i < n; i++) {
+        v[i].codigo = n - i;
+        snprintf(v[i].nome, sizeof(v[i].nome), "%s", nomes[i % 10]);
+        v[i].valor = (n - i) * 10.0f;
+    }
+}
  
