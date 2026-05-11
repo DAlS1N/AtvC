@@ -61,3 +61,17 @@ void insertion_sort(Produto v[], int n, long *comp, long *trocas) {
         v[j+1] = atual;        /* encaixa o produto na posição correta */
     }
 }
+
+/* ---------- geração de cenários ---------- */
+
+/* Cenário 1: dados com codigos sorteados aleatoriamente (situação real). */
+void gerar_aleatorio(Produto v[], int n) {
+    const char *nomes[] = {"Teclado","Mouse","Monitor","Notebook","Headset",
+                           "Webcam","Impressora","Roteador","SSD","Pendrive"};
+    for (int i = 0; i < n; i++) {
+        v[i].codigo = rand() % (n * 10);
+        snprintf(v[i].nome, sizeof(v[i].nome), "%s", nomes[i % 10]);
+        v[i].valor = (rand() % 50000) / 100.0f;
+    }
+}
+ 
